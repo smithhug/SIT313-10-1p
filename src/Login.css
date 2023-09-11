@@ -1,0 +1,19 @@
+.login-style{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: teal;
+  text-align: right;
+}
+
+button {
+  background-color: teal;
+  border: none;
+  color: white;
+  width: 20%;
+  padding: 5px 32px;
+}
