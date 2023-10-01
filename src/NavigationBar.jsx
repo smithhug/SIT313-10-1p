@@ -10,7 +10,7 @@ function NavigationBar() {
         <Link className="link" to="/">
           Find Dev
         </Link>
-        <Link className="link" to="/about">
+        <Link className="link" to="/PostJob">
           Find Jobs
         </Link>
         <Link className="link" to="/login">
