@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from './Input';
 import Button from './Button';
-import './Signup.css'; // Import the new CSS file
+import './Signup.css';
 import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from './utils/firebase';
 
 const Signup = (props) => {
@@ -48,7 +48,7 @@ const Signup = (props) => {
         <p className="signup-link">Create a DevLink Account</p>
         
         <p className='label'>First Name*</p>
-        <Input
+        <input
           className="signup-input"
           name="displayName"
           type="text"
@@ -58,7 +58,7 @@ const Signup = (props) => {
         />
 
         <p className='label'>Last Name*</p>
-        <Input
+        <input
           className="signup-input"
           name="lastName"
           type="text"
@@ -68,7 +68,7 @@ const Signup = (props) => {
         />
 
         <p className='label'>Email*</p>
-        <Input
+        <input
           className="signup-input"
           name="email"
           type="text"
@@ -78,7 +78,7 @@ const Signup = (props) => {
         />
 
         <p className='label'>Password*</p>
-        <Input
+        <input
           className="signup-input"
           name="password"
           type="password"
@@ -88,7 +88,7 @@ const Signup = (props) => {
         />
 
         <p className='label'>Confirm password*</p>
-        <Input
+        <input
           className="signup-input"
           name="confirmPassword"
           type="password"
@@ -97,7 +97,7 @@ const Signup = (props) => {
           value={contact.confirmPassword}
         />
 
-        <button className="signup-button" onClick={handleSubmit}>
+        <button className="formbutton" onClick={handleSubmit}>
           Sign Up
         </button>
       </div>

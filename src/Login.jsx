@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import Input from './Input';
-import Button from './Button';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 import { createUserDocFromAuth, signinAuthUserWithEmailAndPassword } from './utils/firebase';
+import { useAuth } from './utils/authstate';
 
-const Login = (props) => {
+const Login = () => {
+  const { login } = useAuth();
+
+  const nav = useNavigate();
+
   const [contact, setContact] = useState({
     email: '',
     password: '',
@@ -27,8 +31,9 @@ const Login = (props) => {
 
     try {
       const response = await signinAuthUserWithEmailAndPassword(email, password);
+      await login(email, password);
       console.log(response);
-      window.location.href = '/';
+      nav('/');
     } catch (error) {
       alert('Incorrect Email or password')
       console.log('Error logging in ', error.message);
@@ -40,7 +45,7 @@ const Login = (props) => {
       <div className='login-container'>
         <a className='signuplink' href='/signup'>Sign Up</a>
         <p className='label'>Your email</p>
-        <Input 
+        <input 
           className='leftinput'
           name='email'
           type='text'
@@ -50,7 +55,7 @@ const Login = (props) => {
         />
 
         <p className='label'>Your password</p>
-        <Input 
+        <input 
           className='leftinput'
           name='password'
           type='password'
@@ -59,7 +64,7 @@ const Login = (props) => {
           value={contact.password}
         />
 
-        <button onClick={handleSubmit}>Login</button>
+        <button className='formbutton' onClick={handleSubmit}>Login</button>
       </div>
     </div>
   );
